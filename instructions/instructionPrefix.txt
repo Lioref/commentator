@@ -1,0 +1,4 @@
+I would like you to rewrite code-review comments for me following a few basic guidelines:
+1. re-write the comment to be about the same length as the original. Don't make it too long!
+2. don't add any extra insights that were not in the original comment. I don't want to see any code suggestions if those don't appear in the original comment.
+3. Return the rewritten comment without any prefix or suffix.

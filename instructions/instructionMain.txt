@@ -1,0 +1,67 @@
+The guidelines are:
+Compassion is better than preciseness for code review feedback
+The results are code review comments like “Rename to sendMessage."' or "Remove this. Unnecessary."'
+
+1. Ask questions and make suggestions during code review
+The best way to foster a positive code review feedback culture is to ask questions instead of demanding changes. Asking questions about the code has many advantages. It opens up a dialogue and highlights that nobody of the two sides, neither the reviewer nor the code author, is always right.
+Asking questions is also less confrontational. This means that the code author and the code reviewer can decide together on the right course of action. It also allows developers to discuss opinionated choices and learn from each other’s perspectives.
+
+Example: Instead of saying: "This variable should be called 'userId'" you can say "What do you think about calling this variable 'userId'".
+Note: Rhetorical or feisty questions when commenting on pull requests, such as "Why didn't you call the variable 'userId.'" aren’t helpful.
+
+You might think that asking questions is not constructive code review feedback, but in fact, it is. It helps the code author to reflect and think about your input without getting defensive.
+
+2. Make it about the code
+When you phrase the code review feedback, it is an excellent strategy to avoid addressing the code author directly. Blaming the person instead of the code leads to justification, rejections, and defensive behavior.
+
+Example: Instead of saying "You did not close the socket connection here.", you can say "This code does not close the socket connection."
+Blaming is never constructive code review feedback and won’t get you and your team far. See code reviews and coding as a team sport. Focus on facts and leave the blame game out of code reviews.
+
+3. Clarify that it’s your perspective
+While you should not blame the person writing the code, it is a great practice to use I-messages to show that the code review feedback comes from you. First and foremost, this signals that the feedback isn’t a universal statement or a generalization but an observation, an opinion, or a perspective of you.
+Example: Instead of saying "This code is hard to understand." you can say "It's hard for me to understand this code."
+When you explicitly state that this is your view, it makes the comment automatically more constructive code review feedback. Because you describe something that is your perspective or your experience and this makes the statement always truthful.
+
+Example: if you say "Longer variable names are always better.", the code author might disagree. First, it is stated as universal truth, and second, you are generalizing by using the word “always”.
+If you say instead: I find longer variable names easier to understand.", then you transformed this code review comment into constructive code review feedback. The author might still disagree, but at least they learned something about your perspective.
+
+It’s hard to argue against your perspective. This makes it easier for both sides to be open to looking for solutions.
+
+4. No sarcasm when reviewing code
+Studies have shown that it is extremely difficult for people to detect sarcasm in written language. Even if you believe the other person will understand the sarcastic nature of your pull request comments, research shows people most likely won’t. Therefore, it’s best to leave sarcasm out of your code reviews or even out of any other feedback you give.
+
+5. No condescending words
+Words such as “just”, “easy”, “only”, or “obvious” can come across as belittling and condescending. It’s a good practice to remove those words from your code review feedback. Most of the time, they do not add any value. A good explanation of the problems caused by those words gives Jim Fisher here.
+
+Example: "Why didn't you just write the CSS in a separate file?" sounds condescending and judgemental. Removing the word “just” improves the feedback to: "Why didn't you write the CSS in a separate file?".
+
+This feedback could be interpreted as coming from a sincere curiosity. But was this how you interpreted it? Or, did you think it still “sounds” a bit taunting?
+Yeah, indeed. Many of us read this code comment as "You should have written the CSS in a separate file."
+
+But why? As we do not have additional clues such as body language, facial expression, or tone that help us interpret the message in written communication, we can interpret this sentence in any way we like. And research shows that people have a tendency to interpret written language in a negative way.
+
+6. Use Emojis in your code review comments
+One thing that can help with the lack of facial expressions or body language in code review feedback is Emojis. You might think of Emojis as childish or unprofessional. But, their main purpose is exactly making up for the lack of clues that facial expressions can give. So, let’s go back to the previous comment and let’s add one Emoji.
+
+"Why didn't you write the CSS in a separate file"🤔
+It’s much easier to interpret this message now as sincere curiosity.
+
+7. Explain your reasons for the requested PR change
+If you suggest a code change, then you should also explain the reasons why you suggest this change. This is unnecessary if you are 100% sure that the code author is aware of the reasons. Still, most of the time, adding a brief explanation to your pull request comment is better than assuming the code author knows your reasons. This differentiates plain criticism from constructive code review feedback.
+
+Example: Instead of saying “This code does not close the socket connection.", you can add "which causes a leak of a file descriptor. Because the socket is bound to an address, no other socket will be able to bind to the same address."
+
+8. Give guidance during code reviews
+The code reviewer does not need to take over the code author’s job. Still, it is a good practice to critique not only the code but also give guidance on how the code author can improve.
+Sometimes this can be a quick note about a method or API that can be used. For example, in our socket comment, you could add: "Please use the close()-method to close the connection."
+
+Often, code authors need guidance when the feedback is less clear. For example, recall the example where we told the code author that we did not understand the code. Here, it’s crucial that we add some guidance on what the code author can improve to make the code review feedback constructive.
+This means we add to “It’s hard for me to understand this code.” some guidance, such as "I think it would help me to have more expressive variable names."
+
+Similarly, code authors need guidance when reviewers critique architectural or design changes. For example, saying "This code should be more performant." isn’t constructive. As a code reviewer, you do not need to come up with a complete solution, but your feedback should briefly lay out your improvement strategy. Again, this differentiates unconstructive from constructive code review feedback.
+
+9. Assume miscommunication over malice
+Finally, always assume miscommunication over malice during code reviews.
+
+As we already discussed, in written communication, the receiver of the message must interpret the message with no natural clues, such as body language, facial expression, or tone. Several studies show that this can easily go wrong. Misinterpretations happen frequently and are, in addition, hard to detect on the sender’s side. The best way to limit misunderstandings is to err on the side of caution.
+But whenever code review feedback feels harsh, or you feel attacked or belittled during a pull request, it is good to take a step back. Let your amygdala – that’s the part of your brain responsible for the flight or fight mode calm down. Then, remember that most of the time, people have good intentions. With that mindset, you can start addressing the feedback and also helping your peers to convey their message in a more compassionate way.

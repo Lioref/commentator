@@ -1,0 +1,74 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fde2e2; /* light pink background */
+    color: #ff0066; /* dark pink text color */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+#headerBackground {
+    background-color: #f59bb1; /* Slightly darker pink background */
+    padding: 10px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px; /* Smaller bottom spacing */
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif; /* Use the Quicksand font for a modern feminine style */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+}
+
+#originalComment {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #333; /* dark border */
+    border-radius: 5px;
+    min-height: 40px; /* Set a minimum height to prevent it from collapsing */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    resize: none; /* Disable manual resizing */
+    box-sizing: border-box; /* Include padding and border in the total width */
+    width: calc(100% - 22px); /* Set the width to 50% of the container minus padding and margin */
+
+}
+
+
+#Respectify {
+    padding: 10px;
+    margin: 10px;
+    background-color: #333; /* Darker button background */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition on background color change */
+}
+
+#Respectify:hover {
+    background-color: #555; /* Slightly lighter on hover */
+}
+
+#Respectify:active {
+    background-color: #777; /* Even lighter when active */
+}
+
+#result {
+    margin: 20px 10px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    color: #333;
+    box-sizing: border-box; /* Include padding and border in the total width */
+    border: 2px solid #ff0066; /* dark pink border */
+    min-height: 40px; /* Set a minimum height to prevent it from collapsing */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    resize: none; /* Disable manual resizing */
+    width: calc(100% - 22px); /* Set the width to 50% of the container minus padding and margin */
+
+}

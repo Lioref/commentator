@@ -1,0 +1,18 @@
+{
+  "name": "Commentator",
+  "version": "1.0.0",
+  "description": "This is an extension to edit comments for code reviews",
+  "manifest_version": 3,
+  "author": "Liore Finkelstein",
+  "action": {
+    "default_icon": "chatbox.png",
+    "default_popup": "index.html",
+    "default_title": "Commentator"
+  },
+  "icons": {
+    "16": "chatbox.png",
+    "32": "chatbox.png",
+    "48": "chatbox.png",
+    "128": "chatbox.png"
+  }
+}
