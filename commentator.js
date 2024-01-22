@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     const instructions = await fetchInstructions("instructions/instructionPrefix.txt") +
         await fetchInstructions("instructions/instructionMain.txt") +
         await fetchInstructions("instructions/instructionSuffix.txt")
-    // const instructions = await fetchInstructions("instructions/basicInstructions.txt")
-    // const instructions = "I need you to make my comment more respectful by avoiding harsh words and adding emojis. The comment is:"
     // region Consts
     const textareaElement = document.getElementById('originalComment');
     const Respectify = document.getElementById('Respectify')
