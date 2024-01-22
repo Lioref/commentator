@@ -9,6 +9,14 @@
     "default_popup": "index.html",
     "default_title": "Commentator"
   },
+  "content_scripts": [
+   {
+     "matches": ["https://*.bitbucket.org/*/pull-requests/*"],
+     "css": ["bitBucketIntegration.css"],
+     "js": ["bitBucketIntegration.js"],
+     "runAt": "document_end"
+   }
+ ],
   "icons": {
     "16": "chatbox.png",
     "32": "chatbox.png",
