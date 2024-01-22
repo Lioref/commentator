@@ -1,0 +1,33 @@
+# JetBrains IDE files
+.idea/
+
+# Chrome extension build output
+/dist/
+
+# Node.js dependencies
+node_modules/
+
+# Temporary files
+.DS_Store
+Thumbs.db
+
+# Chrome extension packaging
+*.pem
+*.crx
+*.zip
+
+# Logs and runtime data
+/log/
+/runtime/
+
+# Environment-specific files
+.env
+
+# Editor-specific files
+*.iml
+
+# Personal settings
+.editorconfig
+
+# Generated files and directories
+/generated/
