@@ -240,12 +240,6 @@ function getBitBucketIntegrationPopupContainer(svgContainer) {
     return svgContainer.parentElement.parentElement
 }
 
-function mockTextAreaText(textarea) {
-    setTimeout(() => {
-        textarea.innerHTML = "this is for a test a large comment bla bla bla. this is for a test a large comment bla bla bla\nthis is for a test a large comment bla bla bla."
-    }, 1000)
-}
-
 
 function setupPopup(bitBucketIntegrationPopUp, svgContainer, content) {
     bitBucketIntegrationPopUp.addEventListener('click', (e) => e.stopPropagation())
@@ -253,7 +247,7 @@ function setupPopup(bitBucketIntegrationPopUp, svgContainer, content) {
     const replaceButton = bitBucketIntegrationPopUp.querySelector("#commentator---bitbucket-integration---replace-button")
     const submitButton = bitBucketIntegrationPopUp.querySelector("#commentator---bitbucket-integration---respectify-button")
     replaceButton.addEventListener('click', () => {
-        // call API
+        //TODO call API
         textarea.innerHTML = generateString(Math.random() > 0.5 ? 30 : 300)
     })
     textarea.addEventListener('DOMSubtreeModified', () => updateTextareaSize(textarea))
@@ -288,11 +282,6 @@ function getAllParagraphsFromEditor(editorElement) {
 
 function addBitBucketIntegrationPopup(svgContainer, content) {
     console.log("commentator - click occurred")
-    const previousElement = getBitBucketIntegrationPopupContainer(svgContainer).querySelector("#commentator---bitbucket-integration---suggestions-container")
-    if (previousElement) {
-        previousElement.parentElement.remove()
-        return
-    }
     const bitBucketContainer = document.createElement('div')
     bitBucketContainer.innerHTML = bitBucketPopup
     setupPopup(bitBucketContainer, svgContainer, content);
@@ -310,16 +299,29 @@ function getParagraphElementTextOnly(element) {
     return textToConcatenate.join(" ");
 }
 
+function removeIntegrationPopUp(svgContainer) {
+    const previousElement = getBitBucketIntegrationPopupContainer(svgContainer).querySelector("#commentator---bitbucket-integration---suggestions-container")
+    if (previousElement) {
+        previousElement.parentElement.remove()
+        return true
+    }
+    return false
+}
+
 function addIconToEditor(editorElement) {
     const svgContainer = document.createElement("div");
     svgContainer.id = "commentator---bitbucket-integration---icon-container"
     svgContainer.innerHTML = icon
     editorElement.appendChild(svgContainer)
     svgContainer.addEventListener('click', () => {
+        if (removeIntegrationPopUp(svgContainer)) {
+            console.log("pop up already was opened, just removing")
+            return
+        }
         const editorElement = getBitBucketIntegrationPopupContainer(svgContainer)
         const allParagraphs = getAllParagraphsFromEditor(editorElement)
         const content = Array.from(allParagraphs).map(element => getParagraphElementTextOnly(element)).join('\n')
-        // call API.
+        //TODO call API.
         addBitBucketIntegrationPopup(svgContainer, `Respectified: \n${content}`)
     })
 }
@@ -345,7 +347,7 @@ function observeEditorsInBitBucket() {
     const mutationCallback = function (mutationsList, observer) {
         for (const mutation of mutationsList) {
             if (mutation.type === 'childList' && mutation.addedNodes.length > 0 && document.querySelectorAll(".akEditor:not([class*='commentator---bitbucket-integration'])").length > 0) {
-                const allEditors = document.querySelectorAll(".akEditor")
+                const allEditors = document.querySelectorAll(".akEditor:not([class*='commentator---bitbucket-integration'])")
                 allEditors.forEach(editor => integrateWithEditor(editor))
                 console.log(`commentator - num of editors are ${allEditors.length}`)
             }
